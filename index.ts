@@ -6,7 +6,7 @@ import mongoSanitize from "express-mongo-sanitize";
 const app = express();
 
 app.use(express.json());
-// ! Sanitisation
+// Sanitisation
 app.use(mongoSanitize());
 app.use(router);
 
