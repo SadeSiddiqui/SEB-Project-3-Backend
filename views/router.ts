@@ -1,5 +1,5 @@
 import express from "express";
-import { getAnimals } from "../controllers/animalController";
+import { getAnimals, getAnimalById, createAnimal } from "../controllers/animalController";
 import {signup, login} from "../controllers/userController";
 
 const router = express.Router();
@@ -8,13 +8,13 @@ const router = express.Router();
 
 router.route("/api/animals").get(getAnimals);
 
-// // Get an animal
+// Get an animal
 
-// router.route("/api/animals/:animalId").get(getAnimalById);
+router.route("/api/animals/:animalId").get(getAnimalById);
 
-// // Add an animal
+// Add an animal
 
-// router.route("/api/animals").post(secureRoute, createAnimal);
+router.route("/api/animals").post(createAnimal); //secureRoute, ADD BACK IN
 
 // // Delete an animal
 
