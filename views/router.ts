@@ -1,5 +1,6 @@
 import express from "express";
 import { getAnimals } from "../controllers/animalController";
+import {signup, login} from "../controllers/userController";
 
 const router = express.Router();
 
@@ -23,13 +24,13 @@ router.route("/api/animals").get(getAnimals);
 
 // router.route("/api/animals/:animalId").put(secureRoute, updateAnimal);
 
-// // Sign up
+// Sign up
 
-// router.route("/api/signup").post(signup);
+router.route("/api/signup").post(signup);
 
-// // Login
+// Login
 
-// router.route("/api/login").post(login);
+router.route("/api/login").post(login);
 
 // // Getting the currentUser
 

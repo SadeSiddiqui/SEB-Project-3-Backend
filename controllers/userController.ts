@@ -37,7 +37,7 @@ export async function login(req: Request, res: Response) {
     const password = req.body.password;
 
     // Get the user email - if doesn't match return a status error
-    const user = await User.findOne({ email: req.body.emal });
+    const user = await User.findOne({ email: req.body.email });
     if (!user) return res.status(401).send({ message: "Login failed" });
 
     // Check whether password is valid
