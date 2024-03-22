@@ -1,10 +1,11 @@
-// import express from "express";
+import express from "express";
+import { getAnimals } from "../controllers/animalController";
 
-// const router = express.Router();
+const router = express.Router();
 
-// // Get animals
+// Get animals
 
-// router.route("/api/animals").get(getanimals);
+router.route("/api/animals").get(getAnimals);
 
 // // Get an animal
 
@@ -46,4 +47,4 @@
 
 // router.route("/api/posts/:postId").delete(secureRoute, deletePost);
 
-// export default router;
+export default router;
