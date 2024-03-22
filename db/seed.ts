@@ -24,6 +24,17 @@ const animalData = [
     funFact: "Male lions can weight up to 30stone",
     conservation: "Vulnerable",
   },
+  {
+    name: "Pumpkin",
+    species: "Pumpkin",
+    image: "image",
+    type: "Wild",
+    topTip: "feed them by hand",
+    dietary: "Omnivore",
+    continent: "Austrlia",
+    funFact: "Male lions can weigh",
+    conservation: "Least concerned",
+  },
 ];
 
 async function seed() {
