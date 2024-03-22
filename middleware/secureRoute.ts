@@ -20,4 +20,34 @@ export default function secureRoute(
 
   // create token without 'Bearer'
   const token = rawToken.replace("Bearer ", "");
+  // Verify the token using the SECRET key, if verified execute call back function
+  jwt.verify(token, SECRET, async (err, payload) => {
+    console.log("Verifying token");
+
+    // if error or payload (decoded info from token) is empty send unauthorised
+    if (err || !payload) {
+      return res.status(401).json({ message: "Unauthorised" });
+    }
+    console.log("Token Valid!");
+
+    // Specify that the payload should contain the userId as a string
+    interface JWTPayload {
+      userId: string;
+    }
+    // payload should have a structure like JWTPayload
+    const jwtPayload = payload as JWTPayload;
+
+    // Get the userId from the jwtPayload
+    const userId = jwtPayload.userId;
+
+    // Look for a user in the database using the userId taken from the JWT payload
+    const user = await User.findById(userId);
+
+    // If no user found send unauthorised
+    if (!user) return res.status(401).json({ message: "Unauthorised" });
+
+    // if user found attach the found user object to the res.locals object
+    res.locals.currentUser = user;
+    next();
+  });
 }
