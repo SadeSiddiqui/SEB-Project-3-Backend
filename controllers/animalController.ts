@@ -27,6 +27,7 @@ export async function getAnimalById(req:Request, res:Response){
 //Create an animal
 export async function createAnimal(req:Request, res:Response){
 try {
+    console.log(res.locals.currentUser);
     req.body.user = res.locals.currentUser;
     console.log("Adding", req.body);
     const animal = await Animal.create(req.body);

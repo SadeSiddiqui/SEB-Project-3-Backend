@@ -24,8 +24,7 @@ const animalData = [
     funFact: "Male lions can weight up to 30stone",
     conservation: "Vulnerable",
   },
-
-{
+  {
     name: "Pumpkin",
     species: "Pumpkin",
     image: "image",
@@ -36,7 +35,6 @@ const animalData = [
     funFact: "Male lions can weigh",
     conservation: "Least concerned",
   },
-
 ];
 
 async function seed() {
