@@ -18,7 +18,7 @@ const router = express.Router();
 
 // Get animals
 
-router.route("/api/animals").get(getAnimals);
+router.route("/api/animals").get(getAnimals); 
 
 // Get an animal
 
