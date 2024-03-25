@@ -6,8 +6,10 @@ import formatValidationError from "../errors/validation";
 export async function createPost(req: Request, res: Response) {
   try {
     console.log(res.locals.currentUser);
+    console.log(req.params.animalId)
     //add the current user to the post
     req.body.user = res.locals.currentUser;
+    req.body.animalId = req.params.animalId;
     console.log("Adding", req.body);
     const comment = await Comment.create(req.body);
     res.send(comment);

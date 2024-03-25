@@ -11,7 +11,8 @@ export async function getAnimals(req: Request, res: Response) {
 //Delete an animal, feature only used by the same member that posted the animal page onto the app  
 export async function deleteAnimal(req: Request, res: Response){
     try { 
-        const animalToDelete = await Animal.findById(req.body.animalId)
+        console.log(req.params.animalId)
+        const animalToDelete = await Animal.findById(req.params.animalId)
         if (!animalToDelete) {
             return res.send({ message: 'That animal was not found'})
         }

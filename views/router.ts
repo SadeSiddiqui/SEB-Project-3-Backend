@@ -50,7 +50,7 @@ router.route("/api/user").get(secureRoute, getCurrentUser);
 
 // Add a post
 
-router.route("/api/posts").post(secureRoute, createPost);
+router.route("/api/:animalId/posts").post(secureRoute, createPost);
 
 // Update post
 
