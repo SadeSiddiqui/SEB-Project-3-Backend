@@ -52,7 +52,7 @@ export async function login(req: Request, res: Response) {
     }
     // if not valid send status error failed login
     else {
-      res.status(401).send({ message: "Login failed" });
+      res.status(401).send({message: "Login failed", errors: {message: "Login failed"}});
     }
     res.send(req.body);
   } catch (e) {}
