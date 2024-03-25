@@ -18,19 +18,19 @@ const router = express.Router();
 
 // Get animals
 
-router.route("/api/animals").get(getAnimals); 
+router.route("/api/animals").get(getAnimals); // Route works in backend check 
 
 // Get an animal
 
-router.route("/api/animals/:animalId").get(getAnimalById);
+router.route("/api/animals/:animalId").get(getAnimalById); // Route works in backend check 
 
 // Add an animal
 
-router.route("/api/animals").post(secureRoute, createAnimal);
+router.route("/api/animals").post(secureRoute, createAnimal); // Route works in backend check curretly works for an existing user adding a new animal 
 
 // Delete an animal
 
-router.route("/api/animals/:animalId").delete(secureRoute, deleteAnimal);
+router.route("/api/animals/:animalId").delete(secureRoute, deleteAnimal); // Tokin is Valid after current check in insomnia and console logs
 
 // Update an animal
 
