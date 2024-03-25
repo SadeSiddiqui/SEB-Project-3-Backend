@@ -42,6 +42,8 @@ export async function updateAnimal(req: Request, res: Response ) {
     } catch (e) {
         res.send({ message: "There was a problem updating your animal page"})
     }
+}
+
 //Get one animal by Id
 export async function getAnimalById(req:Request, res:Response){
     const animalId = req.params.animalId; 
