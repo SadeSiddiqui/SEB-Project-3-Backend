@@ -1,6 +1,12 @@
 import express from "express";
-import { getAnimals, getAnimalById, createAnimal } from "../controllers/animalController";
-import {signup, login, getCurrentUser} from "../controllers/userController";
+import {
+  getAnimals,
+  getAnimalById,
+  createAnimal,
+  updateAnimal,
+  deleteAnimal,
+} from "../controllers/animalController";
+import { signup, login, getCurrentUser } from "../controllers/userController";
 import secureRoute from "../middleware/secureRoute";
 
 const router = express.Router();
@@ -15,15 +21,15 @@ router.route("/api/animals/:animalId").get(getAnimalById);
 
 // Add an animal
 
-router.route("/api/animals").post(secureRoute, createAnimal); 
+router.route("/api/animals").post(secureRoute, createAnimal);
 
 // // Delete an animal
 
-// router.route("/api/animals/:animalId").delete(secureRoute, deleteAnimal);
+router.route("/api/animals/:animalId").delete(secureRoute, deleteAnimal);
 
 // // Update an animal
 
-// router.route("/api/animals/:animalId").put(secureRoute, updateAnimal);
+router.route("/api/animals/:animalId").put(secureRoute, updateAnimal);
 
 // Sign up
 
