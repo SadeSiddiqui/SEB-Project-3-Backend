@@ -15,7 +15,7 @@ export default function secureRoute(
 
   // if no token send unauthorised
   if (!rawToken) {
-    return res.status(401).json({ message: "Unauthorized" });
+    return res.status(401).json({ message: "maybe Unauthorized" });
   }
 
   // create token without 'Bearer'
@@ -26,7 +26,7 @@ export default function secureRoute(
 
     // if error or payload (decoded info from token) is empty send unauthorised
     if (err || !payload) {
-      return res.status(401).json({ message: "Unauthorised" });
+      return res.status(401).json({ message: "Unauthorised is it" });
     }
     console.log("Token Valid!");
 
@@ -44,7 +44,7 @@ export default function secureRoute(
     const user = await User.findById(userId);
 
     // If no user found send unauthorised
-    if (!user) return res.status(401).json({ message: "Unauthorised" });
+    if (!user) return res.status(401).json({ message: "is it Unauthorised" });
 
     // if user found attach the found user object to the res.locals object
     res.locals.currentUser = user;

@@ -1,29 +1,40 @@
 import express from "express";
-import { getAnimals, getAnimalById, createAnimal } from "../controllers/animalController";
-import {signup, login, getCurrentUser} from "../controllers/userController";
+import {
+  getAnimals,
+  getAnimalById,
+  createAnimal,
+  updateAnimal,
+  deleteAnimal,
+} from "../controllers/animalController";
+import { signup, login, getCurrentUser } from "../controllers/userController";
+import {
+  createPost,
+  updatePost,
+  deletePost,
+} from "../controllers/commentController";
 import secureRoute from "../middleware/secureRoute";
 
 const router = express.Router();
 
 // Get animals
 
-router.route("/api/animals").get(getAnimals);
+router.route("/api/animals").get(getAnimals); // Route works in backend check 
 
 // Get an animal
 
-router.route("/api/animals/:animalId").get(getAnimalById);
+router.route("/api/animals/:animalId").get(getAnimalById); // Route works in backend check 
 
 // Add an animal
 
-router.route("/api/animals").post(secureRoute, createAnimal); 
+router.route("/api/animals").post(secureRoute, createAnimal); // Route works in backend check curretly works for an existing user adding a new animal 
 
-// // Delete an animal
+// Delete an animal
 
-// router.route("/api/animals/:animalId").delete(secureRoute, deleteAnimal);
+router.route("/api/animals/:animalId").delete(secureRoute, deleteAnimal); // Tokin is Valid after current check in insomnia and console logs
 
-// // Update an animal
+// Update an animal
 
-// router.route("/api/animals/:animalId").put(secureRoute, updateAnimal);
+router.route("/api/animals/:animalId").put(secureRoute, updateAnimal);
 
 // Sign up
 
@@ -37,16 +48,16 @@ router.route("/api/login").post(login);
 
 router.route("/api/user").get(secureRoute, getCurrentUser);
 
-// // Add a post
+// Add a post
 
-// router.route("/api/posts").post(secureRoute, createPost);
+router.route("/api/posts").post(secureRoute, createPost);
 
-// // Update post
+// Update post
 
-// router.route("/api/posts/:postId").put(secureRoute, updatePost);
+router.route("/api/posts/:postId").put(secureRoute, updatePost);
 
-// // Delete a post
+// Delete a post
 
-// router.route("/api/posts/:postId").delete(secureRoute, deletePost);
+router.route("/api/posts/:postId").delete(secureRoute, deletePost);
 
 export default router;
