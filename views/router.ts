@@ -8,6 +8,7 @@ import {
 } from "../controllers/animalController";
 import { signup, login, getCurrentUser } from "../controllers/userController";
 import {
+  getPost,
   createPost,
   updatePost,
   deletePost,
@@ -44,9 +45,13 @@ router.route("/api/signup").post(signup);
 
 router.route("/api/login").post(login);
 
-// // Getting the currentUser
+// Getting the currentUser
 
 router.route("/api/user").get(secureRoute, getCurrentUser);
+
+// get all posts
+
+router.route("/api/:animalId/posts").get(getPost)
 
 // Add a post
 

@@ -2,6 +2,15 @@ import { Request, Response } from "express";
 import Comment from "../models/comments";
 import formatValidationError from "../errors/validation";
 
+//Show post
+export async function getPost(req: Request, res: Response) {
+  const animalId = req.params.animalId;
+  console.log(animalId);
+  const post = await Comment.find({ animalId: animalId });
+  res.send(post);
+}
+
+
 //Add a post
 export async function createPost(req: Request, res: Response) {
   try {
