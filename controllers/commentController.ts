@@ -3,12 +3,8 @@ import Comment from "../models/comments";
 import formatValidationError from "../errors/validation";
 
 //getting date and time for post
-let date_time = new Date();
-let date = ("0" + date_time.getDate()).slice(-2);
-let month = ("0" + (date_time.getMonth()+ 1)).slice(-2);
-let year = date_time.getFullYear();
-let hours = date_time.getHours();
-let minutes = date_time.getMinutes();
+
+
 
 
 //Show post
@@ -23,6 +19,16 @@ export async function getPost(req: Request, res: Response) {
 //Add a post
 export async function createPost(req: Request, res: Response) {
   try {
+
+let ts = Date.now()
+let date_time = new Date(ts);
+let date = date_time.getDate();
+let month = date_time.getMonth()+ 1;
+let year = date_time.getFullYear();
+let hours = date_time.getHours();
+let minutes = date_time.getMinutes();
+
+
     console.log(res.locals.currentUser);
     console.log(req.params.animalId)
     //add the current user to the post
@@ -34,7 +40,7 @@ export async function createPost(req: Request, res: Response) {
     //add the time to the post
     req.body.time = hours + ":" + minutes;
     console.log("Adding", req.body);
-    const comment = await Comment.create(req.body);
+    let comment = await Comment.create(req.body);
     res.send(comment);
   } catch (e) {
     res.status(400).send({
