@@ -2,6 +2,15 @@ import { Request, Response } from "express";
 import Comment from "../models/comments";
 import formatValidationError from "../errors/validation";
 
+//getting date and time for post
+let date_time = new Date();
+let date = ("0" + date_time.getDate()).slice(-2);
+let month = ("0" + (date_time.getMonth()+ 1)).slice(-2);
+let year = date_time.getFullYear();
+let hours = date_time.getHours();
+let minutes = date_time.getMinutes();
+
+
 //Show post
 export async function getPost(req: Request, res: Response) {
   const animalId = req.params.animalId;
@@ -18,7 +27,12 @@ export async function createPost(req: Request, res: Response) {
     console.log(req.params.animalId)
     //add the current user to the post
     req.body.user = res.locals.currentUser;
+    //add the animalId to the post
     req.body.animalId = req.params.animalId;
+    //add the date to the post
+    req.body.date = date + "-" + month + "-" + year;
+    //add the time to the post
+    req.body.time = hours + ":" + minutes;
     console.log("Adding", req.body);
     const comment = await Comment.create(req.body);
     res.send(comment);

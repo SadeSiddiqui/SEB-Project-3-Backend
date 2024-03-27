@@ -34,7 +34,7 @@ export async function deleteAnimal(req: Request, res: Response){
 
 export async function updateAnimal(req: Request, res: Response ) {
     try {
-        const animalId = req.body.animalId 
+        const animalId = req.params.animalId 
         const update = req.body 
         const updateAnimal = await Animal.findByIdAndUpdate(animalId, update, { new: true })
         res.send(updateAnimal)
