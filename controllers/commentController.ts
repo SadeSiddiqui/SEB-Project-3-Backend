@@ -42,6 +42,7 @@ let minutes = date_time.getMinutes();
     console.log("Adding", req.body);
     let comment = await Comment.create(req.body);
     res.send(comment);
+    console.log(comment)
   } catch (e) {
     res.status(400).send({
       message: "Not a valid document layout",
