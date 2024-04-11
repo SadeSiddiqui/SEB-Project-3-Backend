@@ -91,7 +91,7 @@ We used trello to manage and track the progress of the project, with the wirefra
 
 The dynamic list format that trello offers (see below) meant that during our morning stand up and afternoon debrief, we were able to keep up to date with tasks and ensure that all tasks were on track to being completed in time.
 
-![Trello board of tasks](</README Assets/Trello.png>)
+![Trello board of tasks](</SEB-Project-3-Backtend/README Assets/Trello.png>)
 
 ## Build/Code Process
 
@@ -123,7 +123,7 @@ C - Controllers, create the files that carries out the functions to be called in
 2. Create a `userSchema` using `mongoose.Schema` adhering to the IUser interface
 3. Define fields with specific types and validations (e.g., use validator.isEmail for email validation).
 
-![UserSchema Model](</README Assets/UserSchema.png>)
+![UserSchema Model](</SEB-Project-3-Backtend/README Assets/UserSchema.png>)
 
 <ins>`router.ts`</ins>
 
